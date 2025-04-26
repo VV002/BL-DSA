@@ -47,5 +47,6 @@ def main():
     print("Queue Last Element:", queue.get_last())
     print("Queue Length:", queue.length())
 
+
 if __name__ == '__main__':
     main()
