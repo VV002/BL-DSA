@@ -20,6 +20,7 @@ class LinkList:
         while temp:
             print(f"{temp.data} ---> ",end="")
             temp = temp.next
+        print("None")
 
     def insert_at_end(self,data):
         if not self.head:
@@ -44,6 +45,20 @@ class LinkList:
             temp = temp.next
         
         print(f"\nTotal elements in Link List : {count}")
+
+    def reverse_link_list(self):
+        if not self.head:
+            print("Link List is Empyt")
+            
+        prev = None
+        current_node = self.head
+        while current_node:
+            next_node = current_node.next
+            current_node.next = prev
+            prev = current_node
+            current_node = next_node
+
+        self.head = prev
 
     def insert_at_any(self,target,data):
         if self.head is None:
@@ -120,7 +135,8 @@ def main():
         print("7. Remove at End")
         print("8. Remove any element")
         print("9. Print Link List")
-        print("10. Exit")
+        print("10. Reverse the Link List")
+        print("11. Exit")
         choice = int(input("\nEnter your choice : "))
         match choice:
             case 1:
@@ -151,8 +167,11 @@ def main():
             case 9:
                 ll.print_link_list()
             case 10:
+                ll.reverse_link_list()
+            case 11:
                 print("Exiting......")
                 break 
+
 
 if __name__ == '__main__':
     main()
